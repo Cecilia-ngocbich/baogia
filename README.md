@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +29,7 @@
         th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
         th { background-color: #343a40; color: white; }
         .text-right { text-align: right; }
+        .text-center { text-align: center; }
         .del-btn { color: #dc3545; cursor: pointer; font-weight: bold; text-align: center; }
         
         /* Khu vực thông tin báo giá & tổng tiền */
@@ -95,8 +96,8 @@
             <input type="text" id="inp-unit" placeholder="Đơn vị" readonly style="width: 60px;">
             <input type="text" id="inp-vat" placeholder="VAT%" readonly style="width: 50px;">
             <input type="text" id="inp-price" placeholder="Đơn giá" readonly style="width: 100px;">
-            <input type="number" id="inp-qty" placeholder="SL" value="1" style="width: 60px;">
-            <input type="number" id="inp-discount" placeholder="% CK" value="0" style="width: 60px;">
+            <input type="number" id="inp-qty" placeholder="Nhập SL" value="1" style="width: 60px;">
+            <input type="number" id="inp-discount" placeholder="Nhập % CK" value="0" style="width: 60px;">
             <input type="text" id="inp-brand" placeholder="Thương hiệu" readonly style="width: 100px;">
             <button class="btn-add" onclick="addToQuote()">+ Thêm</button>
         </div>
@@ -360,14 +361,14 @@
             row.innerHTML = `
                 <td>${item.code}</td>
                 <td>${item.name}</td>
-                <td>${item.unit}</td>
-                <td class="text-right">${item.qty}</td>
+                <td class="text-center">${item.unit}</td>
+                <td class="text-center">${item.qty}</td>
                 <td class="text-right">${item.priceRaw.toLocaleString()}</td>
-                <td class="text-right">${item.discount}%</td>
+                <td class="text-center">${item.discount}%</td>
                 <td class="text-right">${item.priceAfterDisc.toLocaleString()}</td>
                 <td class="text-right">${item.vatRate}%</td>
                 <td class="text-right">${item.lineTotal.toLocaleString()}</td>
-                <td>${item.brand}</td>
+                <td class="text-center">${item.brand}</td>
                 <td class="del-btn" onclick="removeRow(${item.id})">Xóa</td>
             `;
         });
